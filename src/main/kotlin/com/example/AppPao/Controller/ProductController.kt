@@ -3,6 +3,7 @@ package com.example.AppPao.Controller
 import com.example.AppPao.Model.Product
 import com.example.AppPao.Service.ProductService
 import java.util.Optional
+import java.util.UUID
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -32,16 +33,20 @@ class ProductController(@Autowired private val service: ProductService) {
     fun updateProduct (@PathVariable id: String, @RequestBody product: Product): ResponseEntity<Product>{
         val updatedProduct =  service.updateProduct(
             id = id,
-            product = product
+            product = Product(
+                id = UUID.fromString(id),
+                name = product.name,
+                quantity = product.quantity,
+                price = product.price
+            )
         )
 
         return updatedProduct
     }
 
-    @GetMapping("/{id}")
-    fun findById(@PathVariable id: String): ResponseEntity<Optional<Product>> {
-        val product = service.findById(id)
-        return product
+    @GetMapping("/find/{id}")
+    fun findById(@PathVariable id: String): Optional<Product> {
+       return service.findByUUID(id)
     }
 
 

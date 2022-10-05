@@ -14,7 +14,13 @@ import org.springframework.stereotype.Service
 class ProductService(@Autowired private val respository: ProductRepository) {
 
     fun createProduct(product: Product): ResponseEntity<Product>{
-        val productSave = respository.save(product)
+        val productSave = respository.save(
+            Product(
+             name = product.name,
+             quantity = product.quantity,
+             price = product.price
+            )
+             )
         return ResponseEntity.ok(productSave)
     }
 
@@ -35,8 +41,7 @@ class ProductService(@Autowired private val respository: ProductRepository) {
         return ResponseEntity.ok(saved)
     }
 
-    fun findById(id: String): ResponseEntity<Optional<Product>> {
-        val product = respository.findById(UUID.fromString(id))
-        return ResponseEntity.ok(product)
+    fun findByUUID(id: String): Optional<Product> {
+        return respository.findById(UUID.fromString(id))
     }
 }
