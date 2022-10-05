@@ -3,6 +3,7 @@ package com.example.AppPao.Controller
 import com.example.AppPao.Model.Product
 import com.example.AppPao.Service.ProductService
 import java.util.Optional
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("product")
-class ProductController(val service: ProductService) {
+class ProductController(@Autowired private val service: ProductService) {
 
     @PostMapping
     fun createProduct(@RequestBody product: Product): ResponseEntity<Product> {
@@ -29,7 +30,7 @@ class ProductController(val service: ProductService) {
 
     @PutMapping("{id}")
     fun updateProduct (@PathVariable id: String, @RequestBody product: Product): ResponseEntity<Product>{
-       val updatedProduct =  service.updateProduct(
+        val updatedProduct =  service.updateProduct(
             id = id,
             product = product
         )

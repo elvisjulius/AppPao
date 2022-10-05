@@ -4,11 +4,14 @@ import com.example.AppPao.Model.Product
 import com.example.AppPao.Repository.ProductRepository
 import java.util.Optional
 import java.util.UUID
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
+import org.springframework.stereotype.Component
 import org.springframework.stereotype.Service
 
 @Service
-class ProductService(val respository: ProductRepository) {
+@Component
+class ProductService(@Autowired private val respository: ProductRepository) {
 
     fun createProduct(product: Product): ResponseEntity<Product>{
         val productSave = respository.save(product)
