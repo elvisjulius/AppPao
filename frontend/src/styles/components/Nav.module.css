@@ -1,0 +1,10 @@
+.navMainDiv{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 3em;
+  width: 100%;
+  background-color: rgba(237, 237, 115, 0.877);
+}
+.username {  
+  place-self: end;
+}
