@@ -1,0 +1,68 @@
+.firstRow{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.secondRow{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.input{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+input{
+  width: 30vw;
+}
+.cashier{
+  background-color: #f7f4eb;  
+}
+.mainContainer{
+  margin-top: 1em;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;  
+}
+.search{
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0.5em 1em; 
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  background-color: #ffff;
+}
+.cashierButtons{
+  display: flex;
+  flex-direction: row;
+  padding-left: 50px;
+  gap: 60px;
+  max-width: 70vw;
+  justify-content: space-between;
+}
+
+.registerRequestButton{
+  background-color: #00667C;
+  color: #ffff;
+  border: none;
+  height: 40px;
+  width: 120px;
+  margin-right: 15px;
+}
+.cancelButton{
+  background-color: #FF2E00;
+  color: #ffff;
+  border: none;
+  height: 40px;
+  width: 120px;
+}
+.registerSaleButton{
+  background-color: #007C1B;
+  color: #ffff;
+  border: none;
+  height: 60px;
+  width: 120px;
+  justify-self: end;
+}
