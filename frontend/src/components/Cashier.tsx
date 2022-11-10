@@ -35,8 +35,7 @@ function Cashier() {
               Imagem
             </div>   
           </div>            
-        </div>
-        
+        </div>        
       </div>
       <div className={styles.cashierButtons}>
         <div className={styles.cashierButtonsFirst}>

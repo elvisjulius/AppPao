@@ -1,0 +1,33 @@
+.home{
+  background-color: #f7f4eb;  
+}
+.mainContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;  
+}
+.title{
+  font-size: 30px;
+}
+.dashboards{
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  gap: 50px;
+  text-align: center;
+}
+.outOfStock{  
+  background-color: #ffffff;
+  width: 20vw;
+  height: 300px;
+}
+.topSelling{
+  background-color: #ffffff;
+  width: 20vw;
+  height: 300px;
+}
