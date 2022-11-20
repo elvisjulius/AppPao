@@ -12,13 +12,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/com/example/AppPao/Controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/com/example/AppPao/Controller/ProductController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/com/example/AppPao/Model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/com/example/AppPao/Model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/com/example/AppPao/Repository/ProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/com/example/AppPao/Repository/ProductRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/com/example/AppPao/Service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/com/example/AppPao/Service/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Controller/ProductController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Controller/ProductController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Model/Product.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Model/Product.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Repository/ProductRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Repository/ProductRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Service/ProductService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Service/ProductService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +59,8 @@
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
@@ -120,6 +119,7 @@
       <workItem from="1664991790607" duration="356000" />
       <workItem from="1665000107255" duration="152000" />
       <workItem from="1665000307191" duration="7377000" />
+      <workItem from="1668793144520" duration="2904000" />
     </task>
     <servers />
   </component>
@@ -142,17 +142,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Controller/ProductController.kt</url>
-          <line>33</line>
+          <line>34</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Controller/ProductController.kt</url>
-          <line>48</line>
+          <line>49</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Service/ProductService.kt</url>
-          <line>44</line>
+          <line>37</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>

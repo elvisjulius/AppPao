@@ -5,6 +5,7 @@ import com.example.AppPao.Service.ProductService
 import java.util.Optional
 import java.util.UUID
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.jpa.domain.AbstractPersistable_.id
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -30,11 +31,11 @@ class ProductController(@Autowired private val service: ProductService) {
     }
 
     @PutMapping("{id}")
-    fun updateProduct (@PathVariable id: String, @RequestBody product: Product): ResponseEntity<Product>{
+    fun updateProduct (@PathVariable id: Long, @RequestBody product: Product): ResponseEntity<Product>{
         val updatedProduct =  service.updateProduct(
             id = id,
             product = Product(
-                id = UUID.fromString(id),
+                id = id,
                 name = product.name,
                 quantity = product.quantity,
                 price = product.price
@@ -42,11 +43,11 @@ class ProductController(@Autowired private val service: ProductService) {
         )
 
         return updatedProduct
-    }
+   }
 
     @GetMapping("/find/{id}")
-    fun findById(@PathVariable id: String): Optional<Product> {
-       return service.findByUUID(id)
+    fun findById(@PathVariable("id") id: Long): Optional<Product> {
+       return service.findById(id)
     }
 
 

@@ -14,14 +14,7 @@ import org.springframework.stereotype.Service
 class ProductService(@Autowired private val respository: ProductRepository) {
 
     fun createProduct(product: Product): ResponseEntity<Product>{
-        val productSave = respository.save(
-            Product(
-             name = product.name,
-             quantity = product.quantity,
-             price = product.price
-            )
-             )
-        return ResponseEntity.ok(productSave)
+        return ResponseEntity.ok(respository.save(product))
     }
 
     fun getAllProduct(): MutableList<Product>{
@@ -29,8 +22,8 @@ class ProductService(@Autowired private val respository: ProductRepository) {
         return listProduct
     }
 
-    fun updateProduct(id: String, product: Product): ResponseEntity<Product>{
-        val productDBOptional = respository.findById(UUID.fromString(id))
+    fun updateProduct(id: Long, product: Product): ResponseEntity<Product>{
+        val productDBOptional = respository.findById(id)
         val productDB =  productDBOptional.orElseThrow { RuntimeException("Product id: $id not found!") }
         val saved = respository.save(productDB.copy(
             name = product.name,
@@ -41,7 +34,10 @@ class ProductService(@Autowired private val respository: ProductRepository) {
         return ResponseEntity.ok(saved)
     }
 
-    fun findByUUID(id: String): Optional<Product> {
-        return respository.findById(UUID.fromString(id))
+    fun findById(id: Long): Optional<Product> {
+        return respository.findById(id)
     }
+
+    fun <T : Any> Optional<out T>.toList(): List<T> =
+        if (isPresent) listOf(get()) else emptyList()
 }

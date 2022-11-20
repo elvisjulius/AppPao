@@ -9,10 +9,11 @@ import javax.persistence.Id
 
 @Entity
 data class Product(
-    @Id
-    val id: UUID = UUID.randomUUID(),
+    @field:Id
+    @field:GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long,
     @Column(nullable = false, length = 100)
     val name: String,
     val quantity: Int,
-    val price: Long,
+    val price: Float,
 )
