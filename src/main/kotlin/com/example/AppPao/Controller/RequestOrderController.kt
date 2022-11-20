@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController
 
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("request")
 class RequestOrderController(@Autowired private val service: RequestOrderService) {
 
 @PostMapping
