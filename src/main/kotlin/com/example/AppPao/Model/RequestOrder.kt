@@ -7,11 +7,10 @@ import javax.persistence.Id
 import javax.persistence.OneToMany
 
 @Entity
-data class Order (
+data class RequestOrder (
     @field:Id
     @field:GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
-    val amount: Float,
     @OneToMany
-    val list: List<Product>
+    val request: List<Product>
 )
