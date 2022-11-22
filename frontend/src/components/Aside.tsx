@@ -4,11 +4,11 @@ import styles from '../styles/components/Aside.module.css'
 function Aside() {
   return (
     <div className={styles.options}>
-      <a href="">Home</a>
-      <a href="">Estoque</a>
-      <a href="">Caixa</a>
-      <a href="">Catalogo</a>
-      <a href="">Relatorios</a>
+      <a href="/home">Home</a>
+      <a href="/inventory">Estoque</a>
+      <a href="/cashier">Caixa</a>
+      <a href="/catalog">Catalogo</a>
+      <a href="/report">Relatorios</a>
       <a href="">Central de Ajuda</a>
     </div>    
   )
