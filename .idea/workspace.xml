@@ -9,11 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="064d4343-7b4e-4c6d-abfc-6b8c9db29e51" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Controller/ProductController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Controller/ProductController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Controller/UserController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Controller/UserController.kt" afterDir="false" />
-    </list>
+    <list default="true" id="064d4343-7b4e-4c6d-abfc-6b8c9db29e51" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,7 +134,7 @@
       <workItem from="1669471551939" duration="2793000" />
       <workItem from="1669476511462" duration="2117000" />
       <workItem from="1669775166852" duration="948000" />
-      <workItem from="1669828399172" duration="1639000" />
+      <workItem from="1669828399172" duration="2239000" />
     </task>
     <servers />
   </component>
@@ -161,12 +157,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Controller/ProductController.kt</url>
-          <line>37</line>
+          <line>38</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/com/example/AppPao/Controller/ProductController.kt</url>
-          <line>52</line>
+          <line>54</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">

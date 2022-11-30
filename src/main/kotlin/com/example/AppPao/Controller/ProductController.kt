@@ -21,20 +21,20 @@ import org.springframework.web.bind.annotation.RestController
 class ProductController(@Autowired private val service: ProductService) {
 
     @PostMapping
-    @CrossOrigin( origins = arrayOf("http://localhost:3000"))
+    @CrossOrigin( origins = arrayOf("http://127.0.0.1:5173"))
     fun createProduct(@RequestBody product: Product): ResponseEntity<Product> {
         val productSave = service.createProduct(product)
         return productSave
     }
     @GetMapping
-    @CrossOrigin( origins = arrayOf("http://localhost:3000"))
+    @CrossOrigin( origins = arrayOf("http://127.0.0.1:5173"))
     fun getAllProduct(): MutableList<Product> {
         val listProduct = service.getAllProduct()
         return listProduct
     }
 
     @PutMapping("{id}")
-    @CrossOrigin( origins = arrayOf("http://localhost:3000"))
+    @CrossOrigin( origins = arrayOf("http://127.0.0.1:5173"))
     fun updateProduct (@PathVariable id: Long, @RequestBody product: Product): ResponseEntity<Product>{
         val updatedProduct =  service.updateProduct(
             id = id,

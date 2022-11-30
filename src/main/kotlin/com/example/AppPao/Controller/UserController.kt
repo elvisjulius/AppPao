@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RestController
 class UserController(@Autowired private val service: UserService) {
 
     @PostMapping
-    @CrossOrigin( origins = arrayOf("http://localhost:3000"))
+    @CrossOrigin( origins = arrayOf("http://127.0.0.1:5173"))
     fun createUser(@RequestBody user: User): User {
         return service.createUser(user)
 
     }
 
    @GetMapping
-   @CrossOrigin( origins = arrayOf("http://localhost:3000"))
+   @CrossOrigin( origins = arrayOf("http://127.0.0.1:5173"))
    fun checkUser(@RequestBody user: User): User {
        return service.checkUser(user)
    }
