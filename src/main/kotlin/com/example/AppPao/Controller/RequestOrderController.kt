@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.RestController
 class RequestOrderController(@Autowired private val service: RequestOrderService) {
 
 @PostMapping
-@CrossOrigin( origins = arrayOf("http://localhost:5173"))
+@CrossOrigin( origins = arrayOf("http://127.0.0.1:5173"))
 fun createRequestOrder(@RequestBody requestOrder: RequestOrder): RequestOrder{
     return service.createRequestOrder(requestOrder)
 }
 
     @GetMapping
-    @CrossOrigin( origins = arrayOf("http://localhost:5173"))
+    @CrossOrigin( origins = arrayOf("http://127.0.0.1:5173"))
     fun findByIdOrder(@PathVariable("id") id: Long): Optional<RequestOrder>{
         return service.findById(id)
     }
