@@ -1,0 +1,20 @@
+.navMainDiv{
+  display: flex; 
+  justify-content:space-between;
+  align-items: center;
+  padding-left: 1em;
+  padding-right: 3em;
+  font-size: 20px;  
+  font-weight: 700;
+  height: 3em;
+  width: 100%;
+  background-color: #FFEDB5;
+}
+.logo{
+  font-size: 20px;  
+  font-weight: 700;
+}
+.username{
+  font-size: 16px;  
+  font-weight: 500;
+}

@@ -1,0 +1,45 @@
+button{
+  border: none;
+  padding: 10px 0 10px 0;
+  cursor: pointer;
+}
+input{
+  width: 360px;
+}
+.buttonSearch{
+  background-color: #FFCD9E;
+  width: 240px;
+}
+.buttonImport{
+  background-color: #00A624;
+  width: 170px;
+}
+.searchInputButtons{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.catalog{
+  background-color: #f7f4eb;  
+}
+.mainContainer{
+  margin-top: 1em;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;  
+}
+.search{
+  margin-top: 1em;
+  padding: 0.5em 1em; 
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  background-color: #ffff;
+}
+.newProduct{
+  display: flex; 
+  justify-content:space-between;
+  padding: 0.5em 1em;
+  border-bottom: 1px solid;
+}

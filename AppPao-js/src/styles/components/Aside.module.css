@@ -1,0 +1,7 @@
+.options{
+  display: flex;
+  flex-direction: column;
+  padding-top: 1em;
+  padding-left: 1em;
+  gap: 1em;
+}

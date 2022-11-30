@@ -1,0 +1,58 @@
+button{
+  cursor: pointer;
+}
+.firstRow{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.firstRow input{
+  width: 20vw;
+}
+.secondRow{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+
+.report{
+  background-color: #f7f4eb;  
+}
+.mainContainer{
+  margin-top: 1em;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;  
+}
+.search{
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0.5em 1em; 
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  background-color: #ffff;
+}
+
+.listButton{
+  background-color: #FFCD9E;
+  color: #000000;
+  border: none;
+  height: 30px;
+  width: 180px;
+  margin-right: 15px;
+}
+.exportButton{
+  background-color: #0024A6;
+  color: #ffff;
+  border: none;
+  height: 30px;
+  width: 130px;
+}
+.newProduct{
+  display: flex; 
+  justify-content:space-between;
+  padding: 0.5em 1em;
+  border-bottom: 1px solid;
+}
