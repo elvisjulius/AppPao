@@ -14,7 +14,7 @@ class RequestOrderService(@Autowired private val repository: RequestOrderReposit
     fun createRequestOrder(requestOrder: RequestOrder):RequestOrder{
         var total: Float = 0F
         for(k in requestOrder.request){
-            total += k.price
+            total += k.price * k.quantity
         }
         requestOrder.totalPrice = total
 
@@ -25,6 +25,5 @@ class RequestOrderService(@Autowired private val repository: RequestOrderReposit
         return repository.findById(id)
     }
 
-    fun <T : Any> Optional<out T>.toList(): List<T> =
-        if (isPresent) listOf(get()) else emptyList()
+
 }
