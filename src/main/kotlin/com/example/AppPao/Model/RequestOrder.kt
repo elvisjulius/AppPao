@@ -12,5 +12,6 @@ data class RequestOrder (
     @field:GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
     @OneToMany
-    val request: List<Product>
+    val request: List<Product>,
+    var totalPrice: Float
 )

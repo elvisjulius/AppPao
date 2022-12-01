@@ -12,6 +12,12 @@ import org.springframework.stereotype.Service
 class RequestOrderService(@Autowired private val repository: RequestOrderRepository) {
 
     fun createRequestOrder(requestOrder: RequestOrder):RequestOrder{
+        var total: Float = 0F
+        for(k in requestOrder.request){
+            total += k.price
+        }
+        requestOrder.totalPrice = total
+
        return repository.save(requestOrder)
     }
 
