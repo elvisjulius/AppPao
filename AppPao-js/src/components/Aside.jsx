@@ -7,7 +7,7 @@ function Aside() {
       <a href="/home">Home</a>
       <a href="/inventory">Estoque</a>
       <a href="/cashier">Caixa</a>
-      <a href="/catalog">Catalogo</a>
+      <a href="/catalog">Cadastrar</a>
       <a href="/report">Relatorios</a>
       <a href="">Central de Ajuda</a>
     </div>    
