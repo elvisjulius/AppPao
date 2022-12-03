@@ -2,14 +2,29 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/components/Inventory.module.css";
 import api from "../services/api";
 
-const PAGE_PRODUCTS = 'products';
-const PAGE_CART = 'cart';
+const PAGE_PRODUCTS = "products";
+const PAGE_CART = "cart";
+
+const initialValues = [
+  {
+    id: 1,
+    name: "mortadela",
+    quantity: 78,
+    price: 66.34,
+  },
+  {
+    id: 2,
+    name: "mussarela",
+    quantity: 78,
+    price: 66.34,
+  },
+];
 
 function Inventory() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(initialValues);
   const [busca, setBusca] = useState([]);
   const [cart, setCart] = useState([]);
-  const [page, setPage] = useState('PAGE_PRODUCTS');
+  const [page, setPage] = useState("PAGE_PRODUCTS");
 
   useEffect(() => {
     api
@@ -21,77 +36,84 @@ function Inventory() {
   }, []);
 
   const addToCart = (products) => {
-    setCart([...cart, products])
-  }
+    setCart([...cart, { ...products }]);
+  };
+
+  const removefromCart = (productToRemove) => {
+    setCart(cart.filter((product) => product !== productToRemove));
+  };
 
   const navigateTo = (nextPage) => {
     setPage(nextPage);
-  }
+  };
 
   const renderProducts = () => (
     <>
-    <h1>Products</h1>
-              <table>
-                <thead>
-                <tr>
-                  
-                  <td>Código</td>
-                  <td>Nome</td>
-                  <td>Quantidade</td>
-                  <td>valor</td>
-                  <td>&nbsp;</td>
-                </tr>
-                </thead>
-                <tbody>
-                {products.map((amendoim, idx) => {
-                  return (
-                <tr key={idx}>
-                  <td>0{amendoim.id}</td>
-                  <td>{amendoim.name}</td>
-                  <td>{amendoim.quantity}</td>
-                  <td>R${amendoim.price}</td>
-                  <td><button onClick={() => addToCart(products)}>Add</button></td>
-                </tr>
-                )})}
-                </tbody>
-              </table>
-              </>
-  )
+      <h1>Products</h1>
+      <table>
+        <thead>
+          <tr>
+            <td>Código</td>
+            <td>Nome</td>
+            <td>Quantidade</td>
+            <td>valor</td>
+            <td>&nbsp;</td>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((amendoim, idx) => {
+            return (
+              <tr key={idx}>
+                <td>0{amendoim.id}</td>
+                <td>{amendoim.name}</td>
+                <td>{amendoim.quantity}</td>
+                <td>R${amendoim.price}</td>
+                <td>
+                  <button onClick={() => addToCart(amendoim)}>Add</button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </>
+  );
 
-  console.log(cart)
+  console.log(cart);
 
   const renderCart = () => (
     <>
-    <h1>Cart</h1>
-              <table>
-                <thead>
-                <tr>
-                  
-                  <td>Código</td>
-                  <td>Nome</td>
-                  <td>Quantidade</td>
-                  <td>valor</td>
-                  <td>&nbsp;</td>
-                </tr>
-                </thead>
-                <tbody>
-                {cart.map((amendoim, idx) => {
-                  return (
-                <tr key={idx}>
-                  <td>0{amendoim.id}</td>
-                  <td>{amendoim.name}</td>
-                  <td>{amendoim.quantity}</td>
-                  <td>R${amendoim.price}</td>
-                  {/* <td><button onClick={() => addToCart(products)}>Add</button></td> */}
-                </tr>
-                )})}
-                </tbody>
-              </table>
-              </>
-
-)
-
-
+      <h1>Cart</h1>
+      <table>
+        <thead>
+          <tr>
+            <td>Código</td>
+            <td>Nome</td>
+            <td>Quantidade</td>
+            <td>valor</td>
+            <td>&nbsp;</td>
+          </tr>
+        </thead>
+        <tbody>
+          {cart.map((amendoim, idx) => {
+            return (
+              <tr key={idx}>
+                <td>0{amendoim.id}</td>
+                <td>{amendoim.name}</td>
+                <td>{amendoim.quantity}</td>
+                <td>R${amendoim.price}</td>
+                <td>
+                  <button onClick={() => removefromCart(amendoim)}>
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </>
+  );
 
   // const productsFiltered = useMemo(() => {
   //   const lowerBusca = products.toString().toLowerCase();
@@ -131,8 +153,8 @@ function Inventory() {
             </div>
           </div>
           <div>
-            {page === PAGE_PRODUCTS && renderProducts()}              
-            {page === PAGE_CART && renderCart()}              
+            {page === PAGE_PRODUCTS && renderProducts()}
+            {page === PAGE_CART && renderCart()}
           </div>
         </div>
       </div>

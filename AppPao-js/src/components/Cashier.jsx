@@ -18,7 +18,7 @@ function Cashier() {
   //   const newProducts = verifyExistItem();
   //   setNewProducts(newProducts);
   // };
-  
+
   // useEffect(() => {}, [products]);
 
   // function verifyExistItem() {
@@ -60,31 +60,32 @@ function Cashier() {
               </div>
             </div>
           </div>
-           <table>
-           <thead>
-           <tr>
-             
-             <td>Código</td>
-             <td>Nome</td>
-             <td>Quantidade</td>
-             <td>valor</td>
-             <td>&nbsp;</td>
-           </tr>
-           </thead>
-           <tbody>
-           {products.map((amendoim) => {
-             return (
-           <tr>
-             
-             <td>0{amendoim.id}</td>
-             <td>{amendoim.name}</td>
-             <td>{amendoim.quantity}</td>
-             <td>R${amendoim.price}</td>
-             <td><button>Selecionar</button></td>
-           </tr>
-           )})}
-           </tbody>
-         </table>
+          <table>
+            <thead>
+              <tr>
+                <td>Código</td>
+                <td>Nome</td>
+                <td>Quantidade</td>
+                <td>valor</td>
+                <td>&nbsp;</td>
+              </tr>
+            </thead>
+            <tbody>
+              {products.map((amendoim) => {
+                return (
+                  <tr>
+                    <td>0{amendoim.id}</td>
+                    <td>{amendoim.name}</td>
+                    <td>{amendoim.quantity}</td>
+                    <td>R${amendoim.price}</td>
+                    <td>
+                      <button>Selecionar</button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
       </div>
       <div className={styles.cashierButtons}>
