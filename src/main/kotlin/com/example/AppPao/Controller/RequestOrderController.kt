@@ -1,5 +1,6 @@
 package com.example.AppPao.Controller
 
+import com.example.AppPao.Model.Product
 import com.example.AppPao.Model.RequestOrder
 import com.example.AppPao.Service.RequestOrderService
 import java.util.Optional
@@ -19,8 +20,8 @@ class RequestOrderController(@Autowired private val service: RequestOrderService
 
 @PostMapping
 @CrossOrigin( origins = arrayOf("http://127.0.0.1:5173"))
-fun createRequestOrder(@RequestBody requestOrder: RequestOrder): RequestOrder{
-    return service.createRequestOrder(requestOrder)
+fun createRequestOrder(@RequestBody listProducts: List <Product> ): RequestOrder{
+    return service.createRequestOrder(listProducts)
 }
 
     @GetMapping

@@ -1,5 +1,6 @@
 package com.example.AppPao.Service
 
+import com.example.AppPao.Model.Product
 import com.example.AppPao.Model.RequestOrder
 import com.example.AppPao.Repository.RequestOrderRepository
 import java.util.Optional
@@ -11,13 +12,17 @@ import org.springframework.stereotype.Service
 @Component
 class RequestOrderService(@Autowired private val repository: RequestOrderRepository) {
 
-    fun createRequestOrder(requestOrder: RequestOrder):RequestOrder{
+    fun createRequestOrder(listProducts: List <Product>):RequestOrder{
         var total: Float = 0F
-        for(k in requestOrder.request){
+        var requestOrder: RequestOrder? = null
+        for(k in listProducts){
             total += k.price * k.quantity
         }
-        requestOrder.totalPrice = total
+        requestOrder = RequestOrder(
+            request = listProducts,
+            totalPrice = total
 
+        )
        return repository.save(requestOrder)
     }
 
