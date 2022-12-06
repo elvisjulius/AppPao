@@ -20,7 +20,8 @@ class RequestOrderService(@Autowired private val repository: RequestOrderReposit
         }
         requestOrder = RequestOrder(
             request = listProducts,
-            totalPrice = total
+            totalPrice = total,
+            id = requestOrder?.id!!
 
         )
        return repository.save(requestOrder)

@@ -11,7 +11,7 @@ import kotlin.random.Random
 data class RequestOrder (
     @field:Id
     @field:GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = Random(5).nextLong(),
+    val id: Long,
     @OneToMany
     val request: List<Product>,
     var totalPrice: Float
