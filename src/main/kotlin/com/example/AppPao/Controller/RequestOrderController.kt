@@ -5,6 +5,7 @@ import com.example.AppPao.Model.RequestOrder
 import com.example.AppPao.Service.RequestOrderService
 import java.util.Optional
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -20,8 +21,8 @@ class RequestOrderController(@Autowired private val service: RequestOrderService
 
 @PostMapping
 @CrossOrigin( origins = arrayOf("http://127.0.0.1:5173"))
-fun createRequestOrder(@RequestBody listProducts: List <Product> ): RequestOrder{
-    return service.createRequestOrder(listProducts)
+fun createRequestOrder(@RequestBody requestOrder: RequestOrder ): ResponseEntity<RequestOrder> {
+    return service.createRequestOrder(requestOrder)
 }
 
     @GetMapping
