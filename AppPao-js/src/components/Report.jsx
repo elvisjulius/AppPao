@@ -1,49 +1,54 @@
-import React from 'react'
-import styles from '../styles/components/Report.module.css'
+import React, { useEffect, useState } from "react";
+import api from "../services/api";
+import styles from "../styles/components/Report.module.css";
 
 function Report() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    api
+      .get("/request")
+      .then((response) => setProducts(response.data))
+      .catch((err) => {
+        console.error("ops! get deu ruim" + err);
+      });
+  }, []);
+
+  console.log("Get", products);
+
   return (
     <div className={styles.report}>
       <div className={styles.mainContainer}>
-        <div className={styles.sectionTitle}>
-          Relatório
-        </div>
-        <div className={styles.search}>
-          <div className={styles.firstRow}>            
-            <div>
-              <p>Valor</p> 
-              <input type="text" />
-            </div>
-            <div>
-              <p>Data cadastro Inicio</p>                 
-              <input type="text" />
-            </div> 
-            <div>
-              <p>Data cadastro Fim</p>                 
-                <input type="text" />
-            </div>             
-          </div>
-          <div className={styles.secondRow}>
-            
-            <div>
-              <button className={styles.listButton}>Listar</button>
-              <button className={styles.exportButton}>Exportar</button>
-            </div>              
-          </div>            
-        </div>
-        <div className={styles.search}>
-          <div className={styles.newProduct}>
-            <div>
-              <p>Produtos Disponiveis no site</p>
-            </div>
-          </div>
+        <div className={styles.sectionTitle}></div>
+
+        <div className={styles.newProduct}>
           <div>
-            Tabelas com produtos <br />Tabelas com produtos <br />Tabelas com produtos <br />Tabelas com produtos <br />
-          </div> 
-        </div>        
-      </div>      
+            <h2>Lista de pedidos</h2>
+          </div>
+        </div>
+
+        <div className={styles.selector}>
+          {products.map((laranja) => (
+            <label for="happy-radio" class={styles.happyCard}>
+              <h1>Pedido nº {laranja.id}</h1>
+              <ul>
+                {laranja.request.map((limao) => (
+                  <>
+                    <li>Item: {limao.name}</li>
+                    <li>Quantidade: {limao.quantity}</li>
+                    <li>Preço: {limao.price}</li>
+                    <li>-</li>
+                  </>
+                ))}
+              </ul>
+
+              <p>Total R${laranja.totalPrice}</p>
+            </label>
+          ))}
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Report
+export default Report;

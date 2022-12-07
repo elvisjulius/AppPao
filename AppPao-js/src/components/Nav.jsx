@@ -8,7 +8,6 @@ function Nav() {
         AppPão
       </div>
       <div className={styles.username}>
-        Username
       </div>
     </div>
   )

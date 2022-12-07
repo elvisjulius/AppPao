@@ -2,8 +2,35 @@ import React, { useEffect, useState } from "react";
 import api from "../services/api";
 import styles from "../styles/components/Cashier.module.css";
 
+const PAGE_PRODUCTS = "products";
+const PAGE_CART = "cart";
+
+const initialValues = [
+  {
+    id: 1,
+    name: "mortadela",
+    quantity: 78,
+    price: 66.34,
+  },
+  {
+    id: 2,
+    name: "mussarela",
+    quantity: 78,
+    price: 66.34,
+  },
+];
+
+const requestOrder = {
+  request: [],
+  totalPrice: 0.0,
+};
+
 function Cashier() {
   const [products, setProducts] = useState([]);
+  const [busca, setBusca] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [page, setPage] = useState("PAGE_PRODUCTS");
+  const [request, setRequest] = useState();
 
   useEffect(() => {
     api
@@ -14,88 +41,145 @@ function Cashier() {
       });
   }, []);
 
-  // const handleAddProduct = () => {
-  //   const newProducts = verifyExistItem();
-  //   setNewProducts(newProducts);
-  // };
+  const addToCart = (products) => {
+    setCart([...cart, { ...products }]);
+  };
 
-  // useEffect(() => {}, [products]);
+  const removefromCart = (productToRemove) => {
+    setCart(cart.filter((product) => product !== productToRemove));
+  };
 
-  // function verifyExistItem() {
-  //   const existItem = products.some((product) => product.id === item.id);
-  //   if (existItem) {
-  //     const newCart = cart.map((product) => {
-  //       return product.id === item.id
-  //         ? { ...product, amount: product.amount + 1 }
-  //         : product;
-  //     });
-  //     return newCart;
-  //   } else {
-  //     const newItem = { ...item, amount: 1 };
-  //     const newCart = [...cart, newItem];
-  //     return newCart;
-  //   }
-  // }
+  const navigateTo = (nextPage) => {
+    setPage(nextPage);
+  };
+
+  const sendRequest = (cart) => {
+    setRequest({
+      request:[
+        ...cart
+      ],
+      totalPrice: 0.0
+      });
+      alert('Pedido Registrado')
+  }
+
+  console.log(cart);
+
+  function onSubmit(ev){
+    ev.preventDefault();
+
+    api
+      .post("/request", request)
+      // .then((response) => console.log(response))
+      .then((response) => alert('Pedido cadastrado com sucesso!') &&
+      setRequest(response.data))
+      .catch((err) => {
+        console.error("ops! post deu ruim" + err);
+      });
+  }
+  
+  const renderProducts = () => (
+    <>
+      <h1>Products</h1>
+      <table>
+        <thead>
+          <tr>
+            <td>Código</td>
+            <td>Nome</td>
+            <td>Quantidade</td>
+            <td>valor</td>
+            <td>&nbsp;</td>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((amendoim, idx) => {
+            return (
+              <tr key={idx}>
+                <td>0{amendoim.id}</td>
+                <td>{amendoim.name}</td>
+                <td>{amendoim.quantity}</td>
+                <td>R${amendoim.price}</td>
+                <td>
+                  <button className={styles.registerRequestButton} onClick={() => addToCart(amendoim)}>Add</button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </>
+  );
+
+  const renderCart = () => (
+    <>
+      <h1>
+        Carrinho
+      </h1>
+
+      <table>
+        <thead>
+          <tr>
+            <td>Código</td>
+            <td>Nome</td>
+            <td>Quantidade</td>
+            <td>valor</td>
+            <td>&nbsp;</td>
+          </tr>
+        </thead>
+        <tbody>
+          {cart.map((amendoim, idx) => {
+            return (
+              <tr key={idx}>
+                <td>0{amendoim.id}</td>
+                <td>{amendoim.name}</td>
+                <td>{amendoim.quantity}</td>
+                <td>R${amendoim.price}</td>
+                <td>
+                  <button className={styles.cancelButton} onClick={() => removefromCart(amendoim)}>
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </>
+  );
 
   return (
     <div className={styles.cashier}>
       <div className={styles.mainContainer}>
-        <div className={styles.sectionTitle}>Caixa</div>
         <div className={styles.search}>
           <div className={styles.firstRow}>
-            <div>
-              <input type="text" placeholder="Nome do produto..." />
-            </div>
-            <div>
-              <input type="text" placeholder="Valor..." />
-            </div>
+          
           </div>
           <div className={styles.secondRow}>
             <div>
-              <div className={styles.input}>
-                <input type="text" placeholder="Quantidade..." />
-              </div>
-              <div className={styles.input}>
-                <input type="text" placeholder="Subtotal..." />
-              </div>
+             
+              <button
+                className={styles.registerRequestButton} 
+                onClick={() => navigateTo(PAGE_CART)}
+              >
+                Meu carrinho ({cart.length})
+              </button>
+              <button
+                onClick={() => navigateTo(PAGE_PRODUCTS)}
+                className={styles.registerRequestButton} 
+              >
+                Lista de Produtos
+              </button>
             </div>
           </div>
-          <table>
-            <thead>
-              <tr>
-                <td>Código</td>
-                <td>Nome</td>
-                <td>Quantidade</td>
-                <td>valor</td>
-                <td>&nbsp;</td>
-              </tr>
-            </thead>
-            <tbody>
-              {products.map((amendoim) => {
-                return (
-                  <tr>
-                    <td>0{amendoim.id}</td>
-                    <td>{amendoim.name}</td>
-                    <td>{amendoim.quantity}</td>
-                    <td>R${amendoim.price}</td>
-                    <td>
-                      <button>Selecionar</button>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          {page === PAGE_PRODUCTS && renderProducts()}
+          {page === PAGE_CART && renderCart()}
         </div>
       </div>
       <div className={styles.cashierButtons}>
-        <div className={styles.cashierButtonsFirst}>
-          <button className={styles.registerRequestButton}>
+          <button className={styles.registerRequestButton} onClick={() => sendRequest(cart)}>
             Registrar Pedido
           </button>
-          <button className={styles.cancelButton}>Cancelar</button>
-        </div>
-        <button className={styles.registerSaleButton}>Registrar Venda</button>
+        <button className={styles.registerSaleButton} onClick={onSubmit}>Registrar Venda</button>
       </div>
     </div>
   );

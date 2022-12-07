@@ -1,26 +1,4 @@
-button{
-  border: none;
-  padding: 10px 0 10px 0;
-  cursor: pointer;
-}
-input{
-  width: 360px;
-}
-.buttonSearch{
-  background-color: #FFCD9E;
-  width: 240px;
-}
-.buttonImport{
-  background-color: #00A624;
-  width: 170px;
-}
-.searchInputButtons{
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-}
-
-.catalog{
+.report{
   background-color: #f7f4eb;  
 }
 .mainContainer{
@@ -29,17 +7,51 @@ input{
   margin-left: auto;
   width: 90%;  
 }
-.search{
-  margin-top: 1em;
-  padding: 0.5em 1em; 
+
+.selector {
+  margin: 0;
   display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-  background-color: #ffff;
+  align-items: start;
+  height: 100%;
+  color: #FFEDB5;
+  font: 1rem/1 'Cabin', sans-serif;
+  overflow-x: hidden;
 }
-.newProduct{
-  display: flex; 
-  justify-content:space-between;
-  padding: 0.5em 1em;
-  border-bottom: 1px solid;
+
+label {
+  display: block;
+  cursor: pointer;
 }
+
+.happyCard {
+  position: relative; /* for iOS */
+  width: 250px;
+  padding: 20px;
+  color: #586875;
+  background-color: #f4f7f7;
+  box-shadow: 0 10px 20px #0006;
+  margin: 10px;
+}
+
+h1 {
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #bdd6d2;
+  font-size: 1.5rem;
+}
+
+ul {
+  margin: 15px 0;
+  padding-left: 30px;
+  line-height: 1.5rem;
+  list-style-type: none;
+}
+
+p {
+  margin: 0 -20px -20px;
+  padding: 15px;
+  background-color: #bdd6d2;
+  font-weight: bold;
+  text-align: center;
+}
+
