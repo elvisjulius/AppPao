@@ -4,15 +4,16 @@ import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
+import javax.persistence.ManyToMany
 import javax.persistence.OneToMany
-import kotlin.random.Random
+
 
 @Entity
 data class RequestOrder (
-    @field:Id
-    @field:GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
-    @OneToMany
+    @ManyToMany
     val request: List<Product>,
     var totalPrice: Float
 )
