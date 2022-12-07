@@ -25,7 +25,16 @@ fun createRequestOrder(@RequestBody requestOrder: RequestOrder ): ResponseEntity
     return service.createRequestOrder(requestOrder)
 }
 
+@GetMapping
+@CrossOrigin( origins = arrayOf("http://127.0.0.1:5173"))
+fun getListOrder(): MutableList<RequestOrder>{
+    return service.findAll()
+}
+
+
+
     @GetMapping
+    @RequestMapping("/find")
     @CrossOrigin( origins = arrayOf("http://127.0.0.1:5173"))
     fun findByIdOrder(@PathVariable("id") id: Long): Optional<RequestOrder>{
         return service.findById(id)

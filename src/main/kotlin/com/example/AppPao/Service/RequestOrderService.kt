@@ -26,5 +26,9 @@ class RequestOrderService(@Autowired private val repository: RequestOrderReposit
         return repository.findById(id)
     }
 
+    fun findAll(): MutableList<RequestOrder>{
+        return repository.findAll()
+    }
+
 
 }
