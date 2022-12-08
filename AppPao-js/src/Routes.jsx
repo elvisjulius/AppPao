@@ -10,7 +10,7 @@ import Report from './components/Report';
 export function Router(){
     return(
         <Routes>
-            <Route path="/catalog" element={<Catalog/>} />
+            <Route path="/" element={<Catalog/>} />
             <Route path="/cashier" element={<Cashier/>} />
             <Route path="/inventory" element={<Inventory/>} />
             <Route path="/report" element={<Report/>} />

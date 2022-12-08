@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8083",
+  baseURL: "https://app-pao.herokuapp.com/",
 });
 
 export default api;
