@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="064d4343-7b4e-4c6d-abfc-6b8c9db29e51" name="Changes" comment="" />
+    <list default="true" id="064d4343-7b4e-4c6d-abfc-6b8c9db29e51" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +91,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Kotlin.AppPaoApplicationKt">
+  <component name="RunManager" selected="Docker.docker-compose.yml.web: Compose Deployment">
     <configuration name="AppPaoApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.AppPao.AppPaoApplicationKt" />
       <module name="AppPao.main" />
@@ -112,10 +114,24 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yml.web: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="web" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.AppPaoApplicationKt" />
+        <item itemvalue="Docker.docker-compose.yml.web: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Kotlin.AppPaoApplicationKt" />
       </list>
     </recent_temporary>
   </component>
@@ -144,7 +160,7 @@
       <workItem from="1669775166852" duration="948000" />
       <workItem from="1669828399172" duration="3843000" />
       <workItem from="1670408990793" duration="2954000" />
-      <workItem from="1670455062286" duration="2672000" />
+      <workItem from="1670455062286" duration="3507000" />
     </task>
     <servers />
   </component>
