@@ -29,7 +29,7 @@ function Report() {
 
         <div className={styles.selector}>
           {products.map((laranja) => (
-            <label for="happy-radio" class={styles.happyCard}>
+            <label htmlFor="happy-radio" className={styles.happyCard}>
               <h1>Pedido nº {laranja.id}</h1>
               <ul>
                 {laranja.request.map((limao) => (

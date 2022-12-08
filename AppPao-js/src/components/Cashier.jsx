@@ -63,7 +63,37 @@ function Cashier() {
       alert('Pedido Registrado')
   }
 
-  console.log(cart);
+  console.log("Cart", cart);
+
+  const decreaseProduct = (products) => {
+    const itemIndex = cart.findIndex((item) => item.id === products.id);
+
+    if (cart[itemIndex].quantity > 1) {
+      const newCart = cart;
+      newCart[itemIndex].quantity -= 1;
+      setCart(newCart)
+    } else {
+      const nextCartItems = cart.filter((item) => item.id !== products.id);
+      console.log(nextCartItems);
+    }
+  };
+
+  const increaseProduct = (products) => {
+    const itemIndex = cart.findIndex((item) => item.id === products.id);
+
+    console.log("itemIndex", products.id)
+
+    if (itemIndex >= 0) {
+      const newCart = cart;
+      newCart[itemIndex] = {
+        ...newCart[itemIndex],
+        quantity: newCart[itemIndex].quantity + 1,
+      };
+      setCart(newCart)
+    }
+  };
+
+
 
   function onSubmit(ev){
     ev.preventDefault();
@@ -132,8 +162,10 @@ function Cashier() {
               <tr key={idx}>
                 <td>0{amendoim.id}</td>
                 <td>{amendoim.name}</td>
-                <td>{amendoim.quantity}</td>
-                <td>R${amendoim.price}</td>
+                <td> <button onClick={() => decreaseProduct(amendoim)}>-</button>
+                    <button>{amendoim.quantity}</button>
+                    <button onClick={() => increaseProduct(amendoim)}>+</button></td>
+                <td>R${amendoim.price*amendoim.quantity}</td>
                 <td>
                   <button className={styles.cancelButton} onClick={() => removefromCart(amendoim)}>
                     Remove
