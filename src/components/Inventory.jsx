@@ -14,6 +14,7 @@ function Inventory() {
       });
   }, []);
 
+
   console.log("Get", products);
 
   return (
