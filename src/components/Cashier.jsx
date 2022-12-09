@@ -55,13 +55,11 @@ function Cashier() {
 
   const sendRequest = (cart) => {
     setRequest({
-      request:[
-        ...cart
-      ],
-      totalPrice: 0.0
-      });
-      alert('Pedido Registrado')
-  }
+      request: [...cart],
+      totalPrice: 0.0,
+    });
+    alert("Pedido Registrado");
+  };
 
   console.log("Cart", cart);
 
@@ -71,7 +69,7 @@ function Cashier() {
     if (cart[itemIndex].quantity > 1) {
       const newCart = cart;
       newCart[itemIndex].quantity -= 1;
-      setCart(newCart)
+      setCart(newCart);
     } else {
       const nextCartItems = cart.filter((item) => item.id !== products.id);
       console.log(nextCartItems);
@@ -81,7 +79,7 @@ function Cashier() {
   const increaseProduct = (products) => {
     const itemIndex = cart.findIndex((item) => item.id === products.id);
 
-    console.log("itemIndex", products.id)
+    console.log("itemIndex", products.id);
 
     if (itemIndex >= 0) {
       const newCart = cart;
@@ -89,25 +87,25 @@ function Cashier() {
         ...newCart[itemIndex],
         quantity: newCart[itemIndex].quantity + 1,
       };
-      setCart(newCart)
+      setCart(newCart);
     }
   };
 
-
-
-  function onSubmit(ev){
+  function onSubmit(ev) {
     ev.preventDefault();
 
     api
       .post("/request", request)
       // .then((response) => console.log(response))
-      .then((response) => alert('Pedido cadastrado com sucesso!') &&
-      setRequest(response.data))
+      .then(
+        (response) =>
+          alert("Pedido cadastrado com sucesso!") && setRequest(response.data)
+      )
       .catch((err) => {
         console.error("ops! post deu ruim" + err);
       });
   }
-  
+
   const renderProducts = () => (
     <>
       <h1>Products</h1>
@@ -130,7 +128,12 @@ function Cashier() {
                 <td>{amendoim.quantity}</td>
                 <td>R${amendoim.price}</td>
                 <td>
-                  <button className={styles.registerRequestButton} onClick={() => addToCart(amendoim)}>Add</button>
+                  <button
+                    className={styles.registerRequestButton}
+                    onClick={() => addToCart(amendoim)}
+                  >
+                    Add
+                  </button>
                 </td>
               </tr>
             );
@@ -142,9 +145,7 @@ function Cashier() {
 
   const renderCart = () => (
     <>
-      <h1>
-        Carrinho
-      </h1>
+      <h1>Carrinho</h1>
 
       <table>
         <thead>
@@ -162,12 +163,13 @@ function Cashier() {
               <tr key={idx}>
                 <td>0{amendoim.id}</td>
                 <td>{amendoim.name}</td>
-                <td> <button onClick={() => decreaseProduct(amendoim)}>-</button>
-                    <button>{amendoim.quantity}</button>
-                    <button onClick={() => increaseProduct(amendoim)}>+</button></td>
-                <td>R${amendoim.price*amendoim.quantity}</td>
+                <td>{amendoim.quantity}</td>
+                <td>R${amendoim.price * amendoim.quantity}</td>
                 <td>
-                  <button className={styles.cancelButton} onClick={() => removefromCart(amendoim)}>
+                  <button
+                    className={styles.cancelButton}
+                    onClick={() => removefromCart(amendoim)}
+                  >
                     Remove
                   </button>
                 </td>
@@ -183,21 +185,18 @@ function Cashier() {
     <div className={styles.cashier}>
       <div className={styles.mainContainer}>
         <div className={styles.search}>
-          <div className={styles.firstRow}>
-          
-          </div>
+          <div className={styles.firstRow}></div>
           <div className={styles.secondRow}>
             <div>
-             
               <button
-                className={styles.registerRequestButton} 
+                className={styles.registerRequestButton}
                 onClick={() => navigateTo(PAGE_CART)}
               >
                 Meu carrinho ({cart.length})
               </button>
               <button
                 onClick={() => navigateTo(PAGE_PRODUCTS)}
-                className={styles.registerRequestButton} 
+                className={styles.registerRequestButton}
               >
                 Lista de Produtos
               </button>
@@ -208,10 +207,15 @@ function Cashier() {
         </div>
       </div>
       <div className={styles.cashierButtons}>
-          <button className={styles.registerRequestButton} onClick={() => sendRequest(cart)}>
-            Registrar Pedido
-          </button>
-        <button className={styles.registerSaleButton} onClick={onSubmit}>Registrar Venda</button>
+        <button
+          className={styles.registerRequestButton}
+          onClick={() => sendRequest(cart)}
+        >
+          Registrar Pedido
+        </button>
+        <button className={styles.registerSaleButton} onClick={onSubmit}>
+          Registrar Venda
+        </button>
       </div>
     </div>
   );
