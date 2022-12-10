@@ -1,3 +1,2 @@
-from = "/*"
-to = "/index.html"
-status =  200
+/src/components/Inventory.jsx     /inventory
+/components/Inventory.jsx     /inventory
